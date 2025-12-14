@@ -1,23 +1,340 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "전국 포장이사 이삿짐센터 베스트",
+      "description": "원룸, 투룸, 빌라, 아파트, 오피스텔 포장이사 및 이사짐센터 전문 서비스. 안전하고 신속한 이사 솔루션을 제공합니다.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "경기도 양주시 XXX로 XX",
+        "addressLocality": "양주시",
+        "addressRegion": "경기도",
+        "postalCode": "114XX",
+        "addressCountry": "KR"
+      },
+      "telephone": "031-XXX-XXXX",
+      "url": "https://www.example.com/best-moving-service",
+      "openingHours": "Mo-Su 08:00-20:00",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "주요 이사 서비스",
+        "itemListElement": [
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"포장이사"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"반포장이사"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"일반이사"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"보관이사"}}
+        ]
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #4CAF50; /* 부드러운 그린 */
+            --secondary-color: #FFC107; /* 포인트 옐로우 */
+            --background-light: #f4f7f6; /* 밝은 배경 */
+            --text-dark: #2c3e50; /* 진한 텍스트 */
+            --text-light: #5a6a7a; /* 보조 텍스트 */
+            --shadow-color: rgba(0, 0, 0, 0.05);
+        }
+        body { font-family: 'Malgun Gothic', 'Dotum', Arial, sans-serif; margin:0; padding:0; color:var(--text-dark); line-height:1.7; background-color: #fff; }
+        header, section, footer { max-width:1000px; margin:25px auto; padding:0 20px; }
+        h1, h2, h3 { color:var(--primary-color); font-weight:700; }
+        h1 { font-size: 2.2em; border-bottom: 3px solid var(--secondary-color); padding-bottom: 10px; margin-bottom: 20px; }
+        h2 { font-size: 1.8em; margin-top: 40px; border-left: 5px solid var(--primary-color); padding-left: 10px; }
+        h3 { font-size: 1.4em; color: var(--text-dark); margin-top: 30px; }
+        .cta-btn { 
+            display:inline-block; background:var(--primary-color); color:#fff; padding:18px 30px; 
+            border-radius:30px; text-decoration:none; font-size:1.2em; font-weight: bold; 
+            transition:background .3s, transform .2s; box-shadow: 0 4px 6px var(--shadow-color);
+            text-align: center; margin: 15px 0;
+        }
+        .cta-btn:hover { background:#388E3C; transform:translateY(-2px); }
+        nav ul { list-style:none; padding:0; display:flex; flex-wrap: wrap; gap:15px; background-color:var(--background-light); padding:10px; border-radius:8px; }
+        nav a { text-decoration:none; color:var(--primary-color); font-weight:600; padding: 5px 10px; transition: color .3s; }
+        nav a:hover { color:var(--secondary-color); }
+        .service-box { background:var(--background-light); padding:25px; margin:20px 0; border-radius:10px; box-shadow: 0 2px 8px var(--shadow-color); border-left: 5px solid var(--primary-color); }
+        .service-box p { color:var(--text-light); }
+        .section-highlight { background-color: #E8F5E9; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 1em; text-align: left; }
+        table th, table td { padding: 12px 15px; border: 1px solid #ddd; }
+        table th { background-color: var(--primary-color); color: white; text-align: center; }
+        table tr:nth-child(even) { background-color: #f2f2f2; }
+        .faq .item { margin-bottom: 25px; padding: 15px; border: 1px solid #eee; border-radius: 6px; }
+        .faq h3 { color: #00796B; margin-top: 0; }
+        .contact-info { background-color: #fffde7; padding: 20px; border-radius: 8px; text-align: center; }
+        .contact-info a { color: var(--primary-color); font-weight: bold; text-decoration: none; }
+        form p { margin-bottom: 15px; }
+        form label { display: block; font-weight: bold; margin-bottom: 5px; color: var(--primary-color); }
+        form input[type="text"], form input[type="tel"], form input[type="email"], form textarea, form select { 
+            width: calc(100% - 20px); padding: 10px; border: 1px solid #ccc; border-radius: 5px; 
+            box-sizing: border-box; font-size: 1em; margin-top: 5px;
+        }
+        form button { border: none; cursor: pointer; }
+        .small-print { font-size: 0.85em; color: var(--text-light); text-align: center; padding: 15px 0; }
+        .trust-badge { display: flex; justify-content: space-around; flex-wrap: wrap; margin: 20px 0; }
+        .trust-badge div { background-color: #E0F7FA; padding: 15px; border-radius: 5px; text-align: center; flex: 1; min-width: 150px; margin: 5px; font-weight: bold; color: #00838F; }
+        .keyword-table-container { overflow-x: auto; margin: 20px 0; }
+        .internal-links ul { list-style: disc inside; padding-left: 20px; }
+        .external-links ul { list-style: none; padding-left: 0; }
+        .external-links li { margin-bottom: 10px; }
+        .external-links a { color: #1565C0; text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>전국 이삿짐센터 추천 베스트: 포장이사 가격 비교 및 전문 서비스</h1>
+        <p>대한민국 어디든 <strong>포장이사</strong>, **반포장이사**, **일반이사**, **보관이사** 전문 <strong>이삿짐센터</strong>. 고객 만족 최우선, 안전 및 신속 이사 무료 견적 제공!</p>
+        <nav>
+            <ul>
+                <li><a href="#services">주요 이사 서비스</a></li>
+                <li><a href="#keyword-analysis">전국 주요 지역</a></li>
+                <li><a href="#process">이사 준비 체크리스트</a></li>
+                <li><a href="#pricing">2026년 예상 견적</a></li>
+                <li><a href="#faq">자주 묻는 질문</a></li>
+                <li><a href="#contact">무료 견적 신청</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>믿을 수 있는 이삿짐센터 선택 가이드</h2>
+        <div class="trust-badge">
+            <div>✔️ 정식 허가 업체</div>
+            <div>✔️ 이사 화물 배상 책임 보험 가입</div>
+            <div>✔️ 2026년 최신 서비스 도입</div>
+            <div>✔️ 후불제 안심 결제 시스템</div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>전국 이삿짐센터 주요 서비스 안내</h2>
+        <p>저희 이삿짐센터는 고객님의 상황과 필요에 맞춘 다양한 맞춤형 이사 서비스를 제공합니다. 특히 **포장이사**는 포장부터 운송, 정리정돈까지 책임지는 올인원 서비스로 가장 인기가 높습니다.</p>
+        
+        <div class="service-box" id="포장이사">
+            <h3>프리미엄 포장이사 (Full-Service Moving)</h3>
+            <p>고객님이 손댈 필요 없는 가장 편리한 이사 서비스. 전문 인력이 포장, 운반, 도착지 정리 및 배치, 청소까지 완벽하게 처리합니다. 귀중품 및 파손 우려 물품은 특수 포장재를 사용하여 안전하게 운송합니다. 바쁜 현대인들에게 가장 추천하는 **이삿짐센터**의 핵심 서비스입니다.</p>
+            <a href="#contact" class="cta-btn">포장이사 무료 견적 요청</a>
+        </div>
+        
+        <div class="service-box" id="반포장이사">
+            <h3>합리적인 반포장이사</h3>
+            <p>비용 절감을 원하면서도 일부 포장 서비스가 필요한 고객님을 위한 옵션입니다. 저희 팀이 주방용품 등 부피가 크거나 포장이 어려운 짐을 전문적으로 포장하며, 도착지에서는 고객님이 직접 정리하는 방식입니다. **이삿짐센터** 비용을 절약하고 싶을 때 효과적입니다.</p>
+        </div>
+        
+        <div class="service-box" id="보관이사">
+            <h3>안전한 이삿짐 보관 서비스</h3>
+            <p>새집 인테리어, 전세 만기일 불일치 등으로 인해 이삿짐 보관이 필요할 때 이용하는 서비스입니다. 장기간 보관에도 최적화된 항온항습 시설을 갖춘 전문 창고에 짐을 안전하게 보관 및 관리합니다. **이삿짐센터 보관** 서비스는 최소 1개월 단위로 이용 가능하며, 짐의 양에 따라 맞춤 견적을 드립니다.</p>
+        </div>
+
+        <div class="service-box" id="특수이사">
+            <h3>원룸, 오피스텔, 사무실 이사</h3>
+            <p>소량의 짐이나 특수한 환경(고층, 좁은 통로)의 이사에 최적화된 맞춤형 솔루션을 제공합니다. 원룸 및 오피스텔 이사는 1톤 트럭 기반의 효율적인 팀을 투입하며, 사무실 이사는 문서 및 IT 장비의 안전한 운송 및 재배치에 중점을 둡니다. 각 유형에 맞는 최적의 **이삿짐센터** 전문가를 배정합니다.</p>
+        </div>
+
+        <div class="section-highlight">
+            <h3>2026년 이사 서비스 핵심 트렌드</h3>
+            <p>2026년에는 '친환경 포장'과 '미니멀리즘 정리 서비스'가 이삿짐센터의 주요 트렌드로 자리 잡을 전망입니다. 저희 이삿짐센터는 재활용 가능한 포장재 사용을 확대하고, 이사 전후 짐을 줄이는 컨설팅 서비스를 도입하여 고객님의 이사를 더욱 스마트하게 지원합니다. 또한, AI 기반의 짐 분류 및 운송 최적화 시스템을 통해 비용과 시간을 절약하고 있습니다. 이러한 선진화된 기술을 통해 **이삿짐센터**의 서비스 품질을 한 단계 높였습니다.</p>
+        </div>
+    </section>
+
+    <section id="keyword-analysis">
+        <h2>전국 유명 지역별 이삿짐센터 연관 키워드 분석</h2>
+        <p>저희 **이삿짐센터**는 전국 어디든 서비스를 제공합니다. 다음은 네이버 검색창에서 '이삿짐센터'와 함께 많이 검색되는 주요 지역명 및 연관 키워드 목록입니다. 해당 지역에서도 저희는 최고의 **포장이사** 서비스를 제공할 준비가 되어 있습니다.</p>
+        
+        <div class="keyword-table-container">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>대도시/광역권</th>
+                        <th>주요 시/도</th>
+                        <th>핵심 검색어</th>
+                        <th>2026년 예상 비용 특징</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>서울 이삿짐센터</td><td>강남, 송파, 마포, 은평</td><td>강남 포장이사 가격, 마포 용달 이사, 서울 투룸 이사 비용</td><td>교통 혼잡 및 고층 특수 장비 비용 고려</td></tr>
+                    <tr><td>경기 이삿짐센터</td><td>수원, 성남, 고양, 용인, 화성, 남양주, 양주</td><td>수원 아파트 포장이사, 용인 보관 이사, 양주 이사짐센터</td><td>아파트 단지 및 신도시 이사 물량 집중</td></tr>
+                    <tr><td>부산 이삿짐센터</td><td>해운대, 사하, 동래</td><td>부산 포장이사 추천, 해운대 오피스텔 이사</td><td>바닷가 지역 특성 고려한 방습 포장재 사용</td></tr>
+                    <tr><td>인천 이삿짐센터</td><td>부평, 연수, 송도</td><td>인천 반포장이사, 송도 국제도시 이사</td><td>다세대 및 섬 지역 접근성 고려</td></tr>
+                    <tr><td>대구 이삿짐센터</td><td>수성구, 달서구</td><td>대구 이사짐센터 가격, 수성구 빌라 이사</td><td>내륙 지방 장거리 이사 대비</td></tr>
+                    <tr><td>대전 이삿짐센터</td><td>유성구, 서구</td><td>대전 포장이사 전문, 유성 원룸 이사</td><td>연구단지 이사 특화 서비스</td></tr>
+                    <tr><td>광주 이삿짐센터</td><td>광산구, 서구</td><td>광주 이사짐센터 비용, 광산구 공장이사</td><td>산업 단지 및 광역 이사 서비스</td></tr>
+                    <tr><td>울산 이삿짐센터</td><td>남구, 북구</td><td>울산 포장이사 후기, 울산 아파트 이사</td><td>대규모 주거 단지 이사 전문</td></tr>
+                    <tr><td>세종 이삿짐센터</td><td>세종시 전역</td><td>세종시 포장이사, 세종시 이사 전문</td><td>신축 아파트 및 입주 물량 최적화</td></tr>
+                    <tr><td>강원 이삿짐센터</td><td>춘천, 원주, 강릉, 속초</td><td>강원도 이사짐센터, 원주 포장이사</td><td>산악 지역 운반 장비 및 날씨 대비</td></tr>
+                    <tr><td>충청 이삿짐센터</td><td>천안, 청주, 아산</td><td>천안 포장이사 가격, 청주 반포장이사</td><td>중부권 물류 중심지 이사 서비스</td></tr>
+                    <tr><td>경남 이삿짐센터</td><td>창원, 김해, 진주</td><td>창원 이사짐센터 추천, 김해 아파트 이사</td><td>주거 밀집 지역 특화</td></tr>
+                    <tr><td>경북 이삿짐센터</td><td>포항, 구미, 경주</td><td>포항 포장이사, 구미 원룸 이사</td><td>공단 지역 및 문화재 주변 운송 노하우</td></tr>
+                    <tr><td>전남 이삿짐센터</td><td>목포, 여수, 순천</td><td>전남 이사짐센터, 여수 포장이사</td><td>도서 지역 이사 서비스 특화</td></tr>
+                    <tr><td>전북 이삿짐센터</td><td>전주, 익산, 군산</td><td>전주 포장이사 비용, 익산 이사짐센터</td><td>도심 및 농촌 지역 혼합형 서비스</td></tr>
+                    <tr><td>제주 이삿짐센터</td><td>제주시, 서귀포</td><td>제주도 이사짐센터, 제주 포장이사 가격</td><td>해상 운송 및 특수 포장 전문</td></tr>
+                    <tr><td colspan="4">***함께 많이 찾는 키워드:*** 이삿짐센터 견적비교, 이삿짐센터 가격, 포장이사 후기, 이사짐 보관, 이사 비용 절약 팁, 이사 준비 체크리스트, 사다리차 비용</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>이 외에도 계양, 동구, 서구, 북구, 달성, 연제, 기장, 남구, 중구, 하남, 광명, 과천, 의왕, 오산, 안성, 평택, 당진, 서산, 논산, 공주, 제천, 충주, 영주, 안동, 문경, 거제, 통영, 사천, 군포, 의정부, 동두천, 포천, 연천, 파주, 김포, 이천, 여주, 양평, 가평, 횡성, 정선, 태백, 삼척, 동해, 속초, 양양, 고성, 보령, 서천, 금산, 영동, 보은, 단양, 예천, 봉화, 울진, 영덕, 청도, 고령, 합천, 산청, 하동, 남원, 정읍, 김제, 부안, 고창, 진도, 완도, 고흥, 보성, 장흥, 강진, 해남, 무안 등 전국 88개 이상의 모든 지역에서 고객님의 신뢰할 수 있는 **이삿짐센터**가 되겠습니다.</p>
+    </section>
+
+    <section id="process">
+        <h2>2026년 이사 성공을 위한 필수 체크리스트와 전문 정보</h2>
+        
+        <h3>1. 이사 준비 1개월 전</h3>
+        <p>가장 먼저 할 일은 믿을 수 있는 **이삿짐센터**를 선택하는 것입니다. 최소 3곳 이상의 업체에서 방문 견적을 받는 것이 중요합니다. 견적 시 이사 물량, 특수 가구, 작업 환경(엘리베이터 유무, 사다리차 사용 가능 여부 등)을 정확하게 전달해야 합니다. 특히 주말이나 '손 없는 날'은 비용이 높으므로, 이사 날짜를 유연하게 조정할 수 있는지 확인하세요. 이 시기에 전입/전출 신고 및 자녀 전학 관련 서류 준비를 시작합니다. </p>
+
+        <h3>2. 이사 2주 전: 계약 및 행정 처리</h3>
+        <p>선택한 **포장이사** 업체와 정식 계약을 체결하고, 이사화물 배상 책임 보험 가입 여부를 반드시 확인해야 합니다. 이사 당일 문제가 발생했을 때 보상을 받기 위한 필수 절차입니다. 또한, 주소 변경 서비스 일괄 신청 및 자동이체 해지 또는 변경을 처리해야 합니다. 대형 폐기물(가구, 가전)은 미리 지자체에 신고하고 스티커를 발급받아야 합니다. 이는 **이삿짐센터** 직원이 처리해줄 수 없으므로 고객님이 직접 처리해야 하는 중요 사항입니다.</p>
+
+        <h3>3. 이사 1주 전: 짐 분류 및 포장 지원</h3>
+        <p>포장이사라 해도 귀중품(현금, 보석, 중요 서류)은 직접 관리할 상자를 따로 준비해야 합니다. 또한, 이사 당일 사용할 생필품(세면도구, 간단한 옷, 비상약)도 별도로 챙겨 놓아야 합니다. 냉장고 속 음식물은 미리 정리하여 이사 당일 짐이 되지 않도록 합니다. 저희 **이삿짐센터** 전문가는 옷가지, 주방 식기 등을 종류별로 효율적인 포장재를 사용하여 안전하게 포장합니다.</p>
+
+        <h3>4. 이사 당일: 전문가의 손길</h3>
+        <p>**포장이사** 팀이 도착하면 현장 팀장과 함께 이사할 짐의 최종 목록과 특이사항(파손 주의 물품, 별도 운송 물품)을 확인합니다. 작업 시작 전 반드시 이사 계약서와 이사화물 배상 책임 보험 증권을 다시 한번 확인하세요. 짐이 반출된 후에는 가스, 전기, 수도 잠금 및 최종 점검을 해야 합니다. 도착지에서는 가구 배치를 미리 결정하여 전문가들이 바로 정리할 수 있도록 안내합니다. </p>
+
+        <div class="section-highlight">
+            <h3>이사 화물 배상 책임 보험의 중요성</h3>
+            <p>법적으로 허가받은 **이삿짐센터**는 반드시 이사화물 배상 책임 보험에 가입되어 있습니다. 이는 이사 중 발생한 짐의 파손이나 분실에 대해 법적인 책임을 지는 안전장치입니다. 간혹 무허가 용달 이사의 경우 이 보험이 없는 경우가 있으므로, 계약 시 보험증권 사본을 요청하여 반드시 확인해야 합니다. 2026년 기준, 피해 발생 시 현장 팀장에게 즉시 고지하고 사진 증거를 확보하는 것이 신속한 보상 처리에 유리합니다.</p>
+        </div>
+
+        <div class="section-highlight">
+            <h3>용어 정리: 포장이사 vs. 반포장이사 vs. 일반이사</h3>
+            <ul>
+                <li><strong>포장이사:</strong> 포장, 운송, 정리(수납까지는 아님), 청소까지 **이삿짐센터**가 모두 책임지는 올인원 서비스. 가장 비싸지만 가장 편리합니다.</li>
+                <li><strong>반포장이사:</strong> 업체가 포장하고 운송하며, 도착지에서 고객이 직접 정리하는 방식. 비용 절감 효과가 있습니다.</li>
+                <li><strong>일반이사:</strong> 고객이 직접 모든 포장을 하고, 업체는 운송과 큰 짐 배치만 담당하는 방식. 가장 저렴하지만 노동력이 많이 필요합니다.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <h2>2026년 이삿짐센터 유형별 예상 견적 및 비용 결정 요소</h2>
+        <p>이사 비용은 이사 형태, 짐의 양, 이사 거리, 작업 인원 수, 사다리차 사용 여부, 이사 날짜(손 없는 날, 주말) 등 다양한 요소에 의해 결정됩니다. 아래 표는 2026년 예상되는 평균 가격대를 제시하며, 최종 견적은 반드시 현장 방문 후 확정됩니다.</p>
+        
+        <table border="1">
+            <thead>
+                <tr><th>서비스 유형</th><th>2026년 예상 가격대 (원)</th><th>주요 결정 요소</th><th>팁 및 참고 사항</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>원룸 포장이사 (1톤)</td><td>25만–40만</td><td>인원 2명, 엘리베이터 유무, 거리</td><td>최소 비용으로 편리한 이사를 원할 때 추천</td></tr>
+                <tr><td>투룸 포장이사 (1.5~2톤)</td><td>40만–70만</td><td>인원 2~3명, 짐의 종류 및 양</td><td>가전/가구 분해 조립 난이도에 따라 변동</td></tr>
+                <tr><td>빌라·아파트 포장이사 (5톤)</td><td>80만–150만</td><td>인원 3~4명, 사다리차 필수 여부</td><td>고층 이사는 사다리차 비용이 추가됨</td></tr>
+                <tr><td>사무실 이사 (5톤 이상)</td><td>별도 협의</td><td>물품 특성(IT, 중요 문서), 레이아웃 배치</td><td>주말 또는 야간 작업 시 할증 가능성 있음</td></tr>
+                <tr><td>보관 서비스 (5톤 기준)</td><td>15만/월 ~ (면적당)</td><td>보관 기간, 짐의 부피, 창고 환경</td><td>물류 창고의 방습/방충 시설 필수 확인</td></tr>
+                <tr><td>장거리 할증 (50km 초과)</td><td>기본 비용의 10%~30%</td><td>편도 운행 시간, 고속도로 통행료</td><td>장거리 이사는 왕복 운임이 적용될 수 있음</td></tr>
+            </tbody>
+        </table>
+        <p>※ 위 가격은 **이삿짐센터**의 평균적인 예상 비용이며, 정확한 최종 견적은 반드시 **무료 현장 방문 상담**을 통해 받아보시길 강력히 권장합니다.</p>
+    </section>
+
+    <section id="faq" class="faq">
+        <h2>이삿짐센터 이용 시 자주 묻는 질문 (FAQ)</h2>
+        
+        <div class="item">
+            <h3>Q1: 이사 견적은 언제 받는 것이 가장 좋나요?</h3>
+            <p>A: 이사 예정일 기준 **최소 1개월 전**에 받는 것이 좋습니다. 특히 3~4월, 9~10월 같은 이사 성수기나 '손 없는 날'은 2개월 전에도 예약이 마감될 수 있습니다. 미리 예약해야 원하는 날짜와 시간을 확보하고 비교 견적을 통해 합리적인 **이삿짐센터 가격**을 책정할 수 있습니다.</p>
+        </div>
+        
+        <div class="item">
+            <h3>Q2: 이사 당일 추가 요금이 발생하는 경우는 무엇인가요?</h3>
+            <p>A: 계약 시 고지하지 않은 짐이 추가되었을 경우(ex. 갑자기 대형 가전 구매), 엘리베이터 사용 불가능 상황 발생으로 사다리차를 긴급 사용해야 할 경우, 또는 짐을 옮기는 동선에 예상치 못한 난관(ex. 매우 좁은 계단)이 있을 경우 추가 요금이 발생할 수 있습니다. 계약 전 모든 사항을 투명하게 공개하는 것이 중요합니다.</p>
+        </div>
+        
+        <div class="item">
+            <h3>Q3: 포장이사 후 정리정돈은 어느 정도까지 해주나요?</h3>
+            <p>A: 일반적인 **포장이사** 서비스는 가구 및 가전의 제 위치 배치, 박스에 포장했던 물품을 꺼내어 선반이나 수납장 등에 정리해주는 것을 포함합니다. 단, 고객님의 취향에 맞는 '완벽한 수납 정리'는 프리미엄 서비스에 해당할 수 있으므로, 계약 시 정리정돈의 범위(예: 주방 식기 수납, 옷장 행거 정리)를 구체적으로 확인해야 합니다.</p>
+        </div>
+        
+        <div class="item">
+            <h3>Q4: 이삿짐센터 선정 시 가장 중요한 기준은 무엇인가요?</h3>
+            <p>A: <strong>정식 허가 여부</strong>와 <strong>이사화물 배상 책임 보험 가입 여부</strong>입니다. 가격이 저렴한 무허가 업체는 피하고, 관허 업체 중에서도 계약서 내용을 꼼꼼히 확인하고 후기가 좋은 곳을 선택하는 것이 안전하고 만족스러운 이사를 위한 최우선 기준입니다.</p>
+        </div>
+    </section>
+
+    <section class="external-links">
+        <h2>공인된 이사 관련 정보 및 외부 신뢰성 자료</h2>
+        <p>안전하고 투명한 이사를 위해 관련 법규 및 공인된 기관의 정보를 참고하시기 바랍니다. 저희 **이삿짐센터**는 법규를 준수하는 투명한 경영을 약속합니다.</p>
+        <ul>
+            <li><a href="https://www.law.go.kr/lsInfoP.do?lsiSeq=186646&efYd=20161230#0000" target="_blank">화물자동차 운수사업법 (국가법령정보센터)</a>: 이사업체(운수사업자)의 법적 근거 확인.</li>
+            <li><a href="https://www.consumer.go.kr/consumer/bbs/selectBoardList.do?menuId=00000213" target="_blank">이사 관련 소비자 피해 구제 사례 (한국소비자원)</a>: 이사 피해 사례 및 예방 정보 확인.</li>
+            <li><a href="https://www.molit.go.kr/USR/policy/m_21/dtl.jsp?id=3775" target="_blank">관허 이사업체 조회 (국토교통부)</a>: 정식으로 허가받은 **이삿짐센터** 검색 및 확인.</li>
+            <li><a href="https://namu.wiki/w/%ED%8F%AC%EC%9E%A5%EC%9D%B4%EC%82%AC" target="_blank">포장이사에 대한 심층 정보 (나무위키)</a>: 포장이사의 정의, 장단점 등 대중적 정보 확인.</li>
+            <li><a href="https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/csc/safeKnow/safetyRuleDtl.do?menuSeq=126&safetyRuleId=194" target="_blank">태풍·홍수 등 재난 대비 이사 안전 수칙 (행정안전부)</a>: 악천후 시 이사 안전 대비 정보.</li>
+        </ul>
+        <p>이러한 공신력 있는 정보를 기반으로, 저희 **전국 포장이사 이삿짐센터**는 고객님의 권익을 최우선으로 보호하며 안전한 이사를 진행합니다.</p>
+    </section>
+
+    <section id="contact">
+        <h2>무료 방문 견적 및 상세 상담 신청 (체류 시간 유도)</h2>
+        <p>전화 또는 상세 온라인 폼을 통해 지금 바로 **이삿짐센터** 무료 견적을 받아보세요. 전문 컨설턴트가 2026년 최적화된 이사 플랜을 설계해 드립니다.</p>
+        
+        <div class="contact-info">
+            <p>📞 고객 상담 센터: <a href="tel:031-XXX-XXXX">031-XXX-XXXX</a></p>
+            <p>🕒 운영시간: 연중무휴 08:00–20:00 (전화 상담)</p>
+            <a href="tel:031-XXX-XXXX" class="cta-btn">지금 바로 전화 걸고 상담 받기</a>
+        </div>
+        
+        <h3>온라인 상세 견적 요청 폼</h3>
+        <p>아래 상세 정보를 입력하시면, 더욱 정확하고 신속한 **이삿짐센터** 견적을 받아보실 수 있으며, 입력란이 많을수록 고객님의 요구 사항을 정확히 파악하여 만족도를 높일 수 있습니다. (검색 체류 시간 증가 효과)</p>
+        
+        <form action="/submit-detailed-quote" method="post">
+            <p><label for="contact_name">성함 (필수)</label><input type="text" id="contact_name" name="contact_name" required></p>
+            <p><label for="contact_phone">연락처 (필수)</label><input type="tel" id="contact_phone" name="contact_phone" required></p>
+            <p><label for="contact_email">이메일 (선택)</label><input type="email" id="contact_email" name="contact_email"></p>
+            
+            <h3>이사 상세 정보</h3>
+            <p><label for="move_type">희망 이사 유형 (필수)</label>
+                <select id="move_type" name="move_type" required>
+                    <option value="">선택하세요</option>
+                    <option value="포장이사">포장이사</option>
+                    <option value="반포장이사">반포장이사</option>
+                    <option value="일반이사">일반이사</option>
+                    <option value="보관이사">보관이사</option>
+                    <option value="사무실이사">사무실 이사</option>
+                </select>
+            </p>
+            <p><label for="move_date">희망 이사 날짜 (필수)</label><input type="text" id="move_date" name="move_date" placeholder="예: 2026년 3월 15일 (가정)" required></p>
+            <p><label for="start_addr">출발지 주소 (시/구/동까지)</label><input type="text" id="start_addr" name="start_addr" placeholder="예: 경기도 양주시 삼숭동" required></p>
+            <p><label for="start_floor">출발지 층수 및 건물 유형</label><input type="text" id="start_floor" name="start_floor" placeholder="예: 아파트 15층 (엘리베이터 유)" required></p>
+            <p><label for="end_addr">도착지 주소 (시/구/동까지)</label><input type="text" id="end_addr" name="end_addr" placeholder="예: 서울시 송파구 잠실동" required></p>
+            <p><label for="end_floor">도착지 층수 및 건물 유형</label><input type="text" id="end_floor" name="end_floor" placeholder="예: 빌라 3층 (사다리차 사용 예상)" required></p>
+            
+            <h3>짐 부피 및 특이사항 (정확한 견적을 위해 상세히 기입)</h3>
+            <p><label for="item_count">주요 이삿짐 개수 (방 개수 기준)</label>
+                <select id="item_count" name="item_count">
+                    <option value="원룸">원룸 (1~2인 가구)</option>
+                    <option value="투룸">투룸 (2~3인 가구)</option>
+                    <option value="30평대">30평대 아파트/빌라 (3~4인)</option>
+                    <option value="40평대">40평대 이상 대형 이사</option>
+                    <option value="사무실">사무실/기업 이사</option>
+                </select>
+            </p>
+            <p><label for="heavy_items">대형 가구/가전 특이사항</label>
+                <textarea id="heavy_items" name="heavy_items" rows="3" placeholder="예: 양문형 냉장고, 킹사이즈 침대 분해 조립, 피아노, 에어컨 분리/설치 필요 여부"></textarea>
+            </p>
+            <p><label for="pet_info">반려동물 동반 여부 및 특이사항</label>
+                <input type="text" id="pet_info" name="pet_info" placeholder="예: 고양이 1마리, 이사 중 별도 공간 필요">
+            </p>
+            
+            <p>
+                <label for="agree_privacy">
+                    <input type="checkbox" id="agree_privacy" name="agree_privacy" required>
+                    개인정보 수집 및 이용에 동의합니다.
+                </label>
+            </p>
+            
+            <button type="submit" class="cta-btn">상세 견적 요청하고 상담 받기</button>
+        </form>
+        
+        <h3>저희 **이삿짐센터** 주소지 확인 (양주시)</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m..." width="100%" height="350" style="border:1px solid #ddd; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <footer>
+        <div class="small-print">
+            <p>© 2026 전국 포장이사 이삿짐센터 베스트. 경기도 양주시 XXX로 XX. 대표: 홍길동. 사업자등록번호: 123-45-67890</p>
+            <p>본 페이지는 **이삿짐센터** 검색 최적화(SEO)를 위해 '포장이사', '원룸이사', '보관이사' 등 핵심 키워드 및 전국 지역명을 활용하여 작성되었습니다.</p>
+        </div>
+    </footer>
+</body>
 </html>
